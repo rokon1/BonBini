@@ -16,12 +16,12 @@ namespace BonBiniBackEnd.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class MailController : ControllerBase
     {
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<MailController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IHostingEnvironment env)
+        public MailController(ILogger<MailController> logger, IHostingEnvironment env)
         {
             _logger = logger;
         }
@@ -35,14 +35,18 @@ namespace BonBiniBackEnd.Controllers
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Test Project", "arren.van.dosselaer@hotmail.com"));
             message.To.Add(new MailboxAddress("arren test", "s095849@ap.be"));
-            message.Subject = "Reservering: " + mail.SenderName + " "+ mail.ReservationDate.ToLongDateString();
+            message.Subject = "Reservering: " + mail.AmountOfPeople + " Personen, " + mail.ReservationDate.ToShortDateString();
+            if(!string.IsNullOrEmpty(mail.Comment))
+            {
+                mail.Comment = "\n" + mail.Comment + "\n" + "\n";
+            }
             message.Body = new TextPart("plain")
             {
-                Text =   mail.ReservationDate.ToLongDateString() + "\n" +
-                 "\n" + 
-                 mail.Comment + "\n"+
-                "\n" +
-                mail.SenderName + "\n" +
+                Text =   mail.ReservationDate.ToLongDateString() + "\n"+ mail.ReservationDate.ToShortTimeString() +"\n" +
+                "\n" + 
+                "Aantal personen: " + mail.AmountOfPeople + "\n"+
+                mail.Comment +
+                mail.SurName + " " + mail.LastName + "\n" +
                 mail.PhoneNumber + "\n" +
                 mail.Email
 
@@ -55,6 +59,11 @@ namespace BonBiniBackEnd.Controllers
                 client.Disconnect(true);
             }
             return Ok(mail);
+        }
+        [HttpGet]
+        public ActionResult IsOnline()
+        {
+            return Ok("Server is online");
         }
     }
 }

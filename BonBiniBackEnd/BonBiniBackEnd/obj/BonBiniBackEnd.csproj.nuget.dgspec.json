@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\PrivateProjects\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj": {}
+    "F:\\PrivateProjects\\Github\\BonBini\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj": {}
   },
   "projects": {
-    "F:\\PrivateProjects\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj": {
+    "F:\\PrivateProjects\\Github\\BonBini\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\PrivateProjects\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj",
+        "projectUniqueName": "F:\\PrivateProjects\\Github\\BonBini\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj",
         "projectName": "BonBiniBackEnd",
-        "projectPath": "F:\\PrivateProjects\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj",
+        "projectPath": "F:\\PrivateProjects\\Github\\BonBini\\BonBiniBackEnd\\BonBiniBackEnd\\BonBiniBackEnd.csproj",
         "packagesPath": "C:\\Users\\Arren\\.nuget\\packages\\",
-        "outputPath": "F:\\PrivateProjects\\BonBiniBackEnd\\BonBiniBackEnd\\obj\\",
+        "outputPath": "F:\\PrivateProjects\\Github\\BonBini\\BonBiniBackEnd\\BonBiniBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -48,6 +48,10 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.12.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

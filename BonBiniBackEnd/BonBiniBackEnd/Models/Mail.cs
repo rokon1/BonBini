@@ -9,9 +9,11 @@ namespace BonBiniBackEnd.Models
     public class Mail
     {
         [Required]
-        [StringLength(42)] // max 42, -> dus maximum email subject length is 78 characters, aangeraden https://tools.ietf.org/html/rfc5322#section-2.1.1
-        public string SenderName { get; set; }
+        [StringLength(20)]
+        public string SurName { get; set; }
         [Required]
+        [StringLength(20)]
+        public string LastName { get; set; }
         public string Comment { get; set; }
         [Required]
         [Phone]
@@ -22,5 +24,7 @@ namespace BonBiniBackEnd.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public int AmountOfPeople { get; set; } = 1;
     }
 }
